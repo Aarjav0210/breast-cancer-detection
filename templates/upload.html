@@ -7,7 +7,7 @@
   <link href="{{ url_for('static', filename='style.css')}}" rel="stylesheet" type="text/css" />
 </head>
 
-<body style="background-color:#FAFAFA">
+<body>
   <div class="p-3 px-md-4 mb-3 border-bottom shadow-sm" id="navbar">
     <div class="container d-flex flex-column flex-md-row align-items-center">
       <h5 class="my-0 mr-md-auto font-weight-normal text-light"><a class="text-light" href="/">Femilina</a></h5>
@@ -16,15 +16,18 @@
         <a class="p-2 text-light" href="/">Support</a>
         <a class="p-2 text-light" href="/">My Account</a>
       </nav>
-      <a class="btn btn-outline-light" href="/">Log In</a>
+      <a class="btn btn-outline-light" href="/">Log in</a>
     </div>
   </div>
 
-  <main>
+  <main class="container-fluid">
     <div class="container p-4">
-      <h1>MALIGNANT</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" id="input_file" name="input_file"> <br />
+        <p>Drag your files here or click in this area.</p>
+        <button type="submit">Upload</button>
+        </form>
     </div>
-    
   </main>
   <footer class="footer">
     <div class="container">

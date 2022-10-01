@@ -3,6 +3,18 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#navbar {
+  background-color: #EC3B83;
+}
+
+h1{
+  color: #EC3B83;
 }
 
 /* CSS for header */
@@ -36,6 +48,7 @@ body {
 }
 
 /* CSS for main element */
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -49,6 +62,7 @@ body {
   font-size: 50px;
   color: #000;
   margin: 0;
+  padding: 40px 80px;;
 }
 
 .intro p {
@@ -57,9 +71,9 @@ body {
   margin: 20px 0;
 }
 
-.intro button {
-  background-color: #5edaf0;
-  color: #000;
+.intro .btn {
+  background-color: #FED6E1;
+  color: #EC3B83;
   padding: 10px 25px;
   border: none;
   border-radius: 5px;
@@ -69,7 +83,10 @@ body {
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
 }
 
-
+.intro button:hover {
+  background-color: #EC3B83;
+  color: #F4F4F4;
+}
 
 .achievements {
   display: flex;
@@ -112,7 +129,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EC3B83;
+  background-color: #FED6E1;
   padding: 40px 80px;
 }
 
