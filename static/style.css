@@ -49,28 +49,6 @@ h1{
 
 /* CSS for main element */
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 80px;;
-}
-
-.intro h1 {
-  font-family: sans-serif;
-  font-size: 50px;
-  color: #000;
-  margin: 0;
-  padding: 40px 80px;;
-}
-
-.intro p {
-  font-size: 20px;
-  color: #000;
-  margin: 20px 0;
-}
-
 .intro .btn {
   background-color: #FED6E1;
   color: #EC3B83;
@@ -86,20 +64,6 @@ h1{
 .intro button:hover {
   background-color: #EC3B83;
   color: #F4F4F4;
-}
-
-.achievements {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px 80px;
-  color: #fff;
-}
-
-.achievements p{
-  font-size: 20px;
-  color: #000;
-  margin: 20px 0;
 }
 
 .about-me {
