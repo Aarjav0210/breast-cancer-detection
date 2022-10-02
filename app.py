@@ -1,12 +1,15 @@
 import os
+import psycopg2
 from urllib import response
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from script import process_csv
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import *
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
@@ -15,6 +18,18 @@ ALLOWED_EXTENSIONS = set(['csv'])
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+conn = psycopg2.connect(os.getenv("DATABASE_URL"))
+
+logged_in = False
+
+with conn.cursor() as cur:
+    cur.execute("SELECT now()")
+    res = cur.fetchall()
+    conn.commit()
+    print(res)
+
 
 def create_app():
     app = Flask(__name__)
@@ -63,6 +78,43 @@ def create_app():
     @app.route('/support')
     def support():
         return render_template('support.html')
+
+    
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            # email = request.form.get('inputEmail')
+            # with conn.cursor() as cur:
+            #     selectstatement = '''SELECT * FROM user_data Where "email" = %s'''
+            #     password_hash = cur.execute(selectstatement, (email,))
+            #     conn.commit()
+            #     print(password_hash)
+            # if check_password_hash(password_hash, request.form.get('inputPassword')):
+                logged_in = True
+                return redirect(url_for('index'))
+
+        return render_template('login.html')
+    
+    @app.route('/signup', methods=['GET', 'POST'])
+    def signup():
+        if request.method == 'POST':
+            name = request.form.get('inputName')
+            email = request.form.get('inputEmail')
+            password_hash = generate_password_hash(request.form.get('inputPassword'))
+
+            with conn.cursor() as cur:
+                try:
+                    cur.execute("INSERT INTO user_data (email, name, password) VALUES(%s, %s, %s)", (email, name, password_hash))
+                    conn.commit()
+                    cur.execute("SELECT * FROM user_data")
+                    res = cur.fetchall()
+                    conn.commit()
+                    print(res)
+                    logged_in = True
+                except Exception as e:
+                    print("This user already exists")
+
+        return render_template('signup.html')
 
 
     return app
