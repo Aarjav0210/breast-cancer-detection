@@ -1,8 +1,14 @@
 import os
+from urllib import response
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
 from datetime import datetime
 from script import process_csv
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import *
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ALLOWED_EXTENSIONS = set(['csv'])
 
@@ -36,8 +42,21 @@ def create_app():
     @app.route('/results', methods=['GET', 'POST'])
     def results():
         if request.method == 'POST':
-            
-            return redirect(url_for('output'))
+            message = Mail(from_email='curavue@gmail.com',
+                           to_emails='aarjav02@gmail.com',
+                           subject='Subject here',
+                           plain_text_content='Plain text content here',
+                           html_content='Html content here',
+                           )
+            try:
+                sg = SendGridAPIClient(os.getenv("SENDGRID_API"))
+                response = sg.send(message)
+                print(response.status_code)
+                print(response.body)
+                print(response.headers)
+            except Exception as e:
+                print(e.message)
+            return redirect(url_for('results'))
 
         return render_template('results.html')
 
