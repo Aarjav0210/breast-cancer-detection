@@ -58,10 +58,10 @@ def create_app():
     def results():
         if request.method == 'POST':
             message = Mail(from_email='curavue@gmail.com',
-                           to_emails='aarjav02@gmail.com',
-                           subject='Subject here',
-                           plain_text_content='Plain text content here',
-                           html_content='Html content here',
+                           to_emails='curavue02@gmail.com',
+                           subject='Your results file is ready...',
+                           plain_text_content='Please access your results file here',
+                           html_content='Your results file are ready to be downloaded here',
                            )
             try:
                 sg = SendGridAPIClient(os.getenv("SENDGRID_API"))
@@ -115,6 +115,12 @@ def create_app():
                     print("This user already exists")
 
         return render_template('signup.html')
+
+    @app.route('/myaccount', methods=['GET', 'POST'])
+    def myaccount():
+            
+
+        return render_template('myaccount.html')
 
 
     return app

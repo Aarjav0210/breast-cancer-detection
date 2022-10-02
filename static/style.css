@@ -153,3 +153,8 @@ h1 {
   color: #000000;
   padding: 10px 20px;
 }
+
+
+#dtHorizontalExample {
+  scrollX: true
+}
