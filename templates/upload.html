@@ -20,15 +20,34 @@
     </div>
   </div>
 
-  <main class="container-fluid">
+  <main>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="display-3">Please upload your mammogram results</h1>
+            <p class="lead p-2">
+              With the assistance of our Machine Learning algorithm,
+              we aim to provide a helpful insight into your results
+            </p>
+          </div>
+          <div class="col-md-auto">
+            <img src="https://1000logos.net/wp-content/uploads/2022/04/Breast-Cancer-Logo.png" height="300" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container p-4">
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" id="input_file" name="input_file"> <br />
-        <p>Drag your files here or click in this area.</p>
-        <button type="submit">Upload</button>
-        </form>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="input_file">Click here to upload your mammogram csv</label><br/>
+        <input type="file" id="input_file" name="input_file">
+        <p class="py-2">Drag your files here or click in this area.</p>
+        <button id="fullbtn" type="submit" class="btn btn-secondary btn-lg btn-block">Upload</button>
+      </form>
     </div>
   </main>
+
   <footer class="footer">
     <div class="container">
       <p class="float-right">
