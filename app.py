@@ -58,7 +58,7 @@ def upload():
 def results():
     if request.method == 'POST':
         message = Mail(from_email='curavue@gmail.com',
-                        to_emails='curavue02@gmail.com',
+                        to_emails=['aarjav02@gmail.com', 'curavue@gmail.com'],
                         subject='Your results file is ready...',
                         plain_text_content='Please access your results file here',
                         html_content='Your results file are ready to be downloaded here',
@@ -124,4 +124,4 @@ def myaccount():
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
