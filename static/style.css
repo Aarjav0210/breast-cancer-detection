@@ -10,11 +10,11 @@ body {
 }
 
 #navbar {
-  background-color: #EC3B83;
+  background-color: #ec3b83;
 }
 
-h1{
-  color: #EC3B83;
+h1 {
+  color: #ec3b83;
 }
 
 /* CSS for header */
@@ -22,7 +22,7 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EC3B83;
+  background-color: #ec3b83;
 }
 
 .header .logo {
@@ -37,7 +37,7 @@ h1{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #EC3B83;
+  background-color: #ec3b83;
   margin-right: 20px;
 }
 
@@ -50,20 +50,20 @@ h1{
 /* CSS for main element */
 
 .intro .btn {
-  background-color: #FED6E1;
-  color: #EC3B83;
+  background-color: #fed6e1;
+  color: #ec3b83;
   padding: 10px 25px;
   border: none;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
 }
 
 .intro button:hover {
-  background-color: #EC3B83;
-  color: #F4F4F4;
+  background-color: #ec3b83;
+  color: #f4f4f4;
   border: none;
   border-radius: 5px;
 }
@@ -73,15 +73,15 @@ h1{
 }
 
 #fullbtn {
-  background-color: #FED6E1;
-  color: #EC3B83;
+  background-color: #fed6e1;
+  color: #ec3b83;
   padding: 10px 25px;
   border: none;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
 }
 
 .about-me {
@@ -117,7 +117,7 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FED6E1;
+  background-color: #fed6e1;
   padding: 40px 80px;
   margin-top: auto;
 }
@@ -153,5 +153,3 @@ h1{
   color: #000000;
   padding: 10px 20px;
 }
-
-
