@@ -68,6 +68,9 @@ h1{
   border-radius: 5px;
 }
 
+.card {
+  min-height: 200px;
+}
 
 #fullbtn {
   background-color: #FED6E1;
