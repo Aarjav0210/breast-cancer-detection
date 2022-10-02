@@ -41,5 +41,9 @@ def create_app():
 
         return render_template('results.html')
 
+    @app.route('/support')
+    def support():
+        return render_template('support.html')
+
 
     return app
